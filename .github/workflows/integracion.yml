@@ -46,7 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       # Invocar Comando Servidor Remoto
-      - name: Create SSH key
+      - name: Crear SSH key
         run: |
           install -m 600 -D /dev/null ~/.ssh/SmartCode
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/SmartCode
