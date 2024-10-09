@@ -46,10 +46,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       # Invocar Comando Servidor Remoto
-      - name: Crear SSH key
-        run: |
-          install -m 600 -D /dev/null ~/.ssh/SmartCode
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/SmartCode
-          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-      - name: Publicar en servidor Remoto
-        run: ssh -i ~/.ssh/SmartCode ubuntu@140.84.178.147 "bash publicarAD.sh"
+      - name: SSH Remote Commands
+      # You may pin to the exact commit or the version.
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+    		 host: ${{ secrets.SSH_KNOWN_HOSTS }}
+			   username: ${{ secrets.SSH_USER }}
+			   key: ${{ secrets.SSH_PRIVATE_KEY }}
+         password: ${{ secrets.SSH_PASS }}
+         script: bash publicarAD.sh
