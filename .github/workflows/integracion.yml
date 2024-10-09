@@ -47,11 +47,11 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       
       # Invocar Comando Servidor Remoto
-      - name: Comando Servidor Remoto
-        uses: appleboy/ssh-action@v1.0.3
+      - name: SSH Remote Commands
+  	uses: appleboy/ssh-action@v1.0.3
 	with:
     	  host: ${{ secrets.SSH_KNOWN_HOSTS }}
-          username: ${{ secrets.SSH_USER }}
+          username:${{ secrets.SSH_USER }}
 	  password: ${{ secrets.SSH_PASS}}
 	  key: ${{ secrets.SSH_PRIVATE_KEY }}
    	  script: bash publicarAD.sh
