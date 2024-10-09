@@ -52,4 +52,4 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: Publicar en servidor Remoto
-        run: ssh ubuntu@140.84.178.147 "bash publicarAD.sh"
+        run: ssh -i SmartCode ubuntu@140.84.178.147 "bash publicarAD.sh"
