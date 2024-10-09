@@ -22,5 +22,4 @@ jobs:
         host: ${{ secrets.SSH_KNOWN_HOSTS }}
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.SSH_PASS }}
-        script: bash publicarAD.sh
-	# This is a basic workflow to help you get started with Actions
+        script: "bash publicarAD.sh"
