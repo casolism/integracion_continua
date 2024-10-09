@@ -45,13 +45,13 @@ jobs:
           build_dir: dist/integracion-app/browser
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      
       # Invocar Comando Servidor Remoto
       - name: Comando Servidor Remoto
         uses: appleboy/ssh-action@v1.1.0
 	with:
     	  host: ${{ secrets.SSH_KNOWN_HOSTS }}
-          username:${{ secrets.SSH_USER }}
+          username: ${{ secrets.SSH_USER }}
 	  password: ${{ secrets.SSH_PASS}}
 	  key: ${{ secrets.SSH_PRIVATE_KEY }}
-   	  script:|
-		bash publicarAD.sh
+   	  script: bash publicarAD.sh
