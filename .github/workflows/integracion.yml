@@ -19,8 +19,8 @@ jobs:
     # Invocar Comando Servidor Remoto
       - name: Crear SSH key
         run: |
-          install -m 600 -D /dev/null ~/.ssh/SmartCode
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/SmartCode
+          install -m 600 -D /dev/null ~/SmartCode
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/SmartCode
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.0.3
@@ -28,5 +28,4 @@ jobs:
           host: 140.84.178.147:22
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: "bash publicarAD.sh"
