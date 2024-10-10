@@ -26,5 +26,4 @@ jobs:
         run: |
           echo "${{ secrets.SSH_PASS }}" > ~/.ssh/pass
           chmod 0400 ~/.ssh/pass
-          sshpass -f ~/.ssh/pass ssh ubuntu@140.84.178.147
-          bash publicarAD.sh
+          sshpass -f ~/.ssh/pass ssh ubuntu@140.84.178.147 "bash publicarAD.sh"
