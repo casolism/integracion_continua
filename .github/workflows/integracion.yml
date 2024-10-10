@@ -27,4 +27,5 @@ jobs:
           ls -al ~/.ssh
           cat ~/.ssh/SmartCode
           cat ~/.ssh/known_hosts
-          ssh -i ~/.ssh/SmartCode ubuntu@140.84.178.147 "bash publicarAD.sh"
+          sudo apt-get install sshpass
+          sshpass -p ${{ secrets.SSH_PASS }} ssh -i ~/.ssh/SmartCode ubuntu@140.84.178.147 "bash publicarAD.sh"
