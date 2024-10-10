@@ -24,4 +24,4 @@ jobs:
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: Publicar en servidor Remoto
         run: |
-          sshpass -p ${{ secrets.SSH_PASS }} -P assphrase ssh -i ~/.ssh/SmartCode ${{ secrets.SSH_PASS}}@${{secrets.SSH_HOST}} "/home/ubuntu/publicarAD.sh"
+          sshpass -p ${{ secrets.SSH_PASS }} -P assphrase ssh -i ~/.ssh/SmartCode ${{ secrets.SSH_USER}}@${{secrets.SSH_HOST}} "/home/ubuntu/publicarAD.sh"
