@@ -24,8 +24,7 @@ jobs:
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: Publicar en servidor Remoto
         run: |
-          ls -al ~/.ssh
-          cat ~/.ssh/SmartCode
-          cat ~/.ssh/known_hosts
-          sudo apt-get install sshpass
-          sshpass -p ${{ secrets.SSH_PASS }} ssh -i ~/.ssh/SmartCode ubuntu@140.84.178.147 "bash publicarAD.sh"
+          echo "${{ secrets.SSH_PASS }}" > ~/.ssh/pass
+          chmod 0400 ~/.ssh/pass
+          sshpass -f ~/.ssh/pass ssh -i ~/.ssh/SmartCode ubuntu@140.84.178.147
+          bash publicarAD.sh
